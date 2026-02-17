@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.utils import timezone
+from .models import Event
 
 # Create your views here.
 def countdown_timer(request):
@@ -9,7 +11,7 @@ def countdown_timer(request):
         minutes = (time_remaining.seconds % 3600)
         seconds = time_remaining.seconds % 60
         data = {
-            'name': event.name
+            'name': event.name,
             'hours': hours,
             'minutes': minutes,
             'seconds': seconds
